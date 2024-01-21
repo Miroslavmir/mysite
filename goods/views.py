@@ -1,9 +1,19 @@
 from django.shortcuts import render
 
 # Create your views here.
+from goods.models import Products
+
 
 def catalog(request):
-    return render(request, 'goods/catalog.html')
+    goods = Products.objects.all
+
+
+    context = {
+        'title':'Smart_House',
+       "goods": goods,
+
+    }
+    return render(request, 'goods/catalog.html', context)
 
 
 def product(request):

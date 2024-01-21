@@ -1,10 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from goods.models import Categories
 def index(request):
+
     context = {
-        'title':'Home - Основная',
-        'content': 'Магазин товаров для умного дома'
+        'title':'Smart_house',
+        'content': 'Магазин товаров для умного дома',
     }
 
 

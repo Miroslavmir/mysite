@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load goods_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,7 @@
                                 <li><a class="dropdown-item  text-black" href="carts/cart.html">Корзина</a></li>
                                 <li><a class="dropdown-item  text-black" href="users/profile.html">Личный кабинет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-black" href="#">Админ панель</a></li>
+                                <li><a class="dropdown-item  text-black" href="{% url "admin:index" %}">Админ панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -87,14 +87,20 @@
                         <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
                              height="16">
                     </button>
-                    <ul class="dropdown-menu bg-blue" data-bs-theme="blue">
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Все товары</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Шкафы управления</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Розетки</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Выключатели</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Освещение</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Оборудование для монтажа</a></li>
-                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Инструмент для монтажа</a></li>
+                    <ul class="dropdown-menu bg-blue" data-bs-theme="dark">
+                        {% tag_categories as cayegories %}
+
+                        {% for category in categories %}
+                                     <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">{{ category.name}}</a></li>
+                        {% endfor %}
+
+
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Шкафы управления</a></li>#}
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Розетки</a></li>#}
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Выключатели</a></li>#}
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Освещение</a></li>#}
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Оборудование для монтажа</a></li>#}
+{#                        <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">Инструмент для монтажа</a></li>#}
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->

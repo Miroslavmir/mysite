@@ -41,282 +41,52 @@
                                 <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                             </form>
                         </div>
-                        <!-- Карта товара -->
+
+
+
+
+                        {% for product in goods %}
+                          <!-- Карта товара -->
                         <div class="col-lg-4 col-md-6 p-4">
                             <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/01-sborka-el-shitov.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="../goods/product.html">
-                                        <p class="card-title">Модульный щит всборе</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Модульный щчит всборе автоматика, защита управления.</p>
-                                    <p class="product_id">id: 01</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>775</s> $</p>
-                                        <p><strong>650.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn add-to-cart">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/bolshoj-obzor-shchita-umnogo-doma-2.jpg" class="card-img-top" alt="...">
+                                {% if product.image %}
+                                     <img src="{{product.image.url }}" class="card-img-top" alt="{{product.name }}">
+                                    {% else  %}
+                                    <img src="{% static "deps/images/Not found image.png"%}" class="card-img-top" alt="...">
+                                {% endif %}
+
                                 <div class="card-body">
                                     <a href="#">
-                                        <p class="card-title">Большой модульный щит всборе</p>
+                                        <p class="card-title">{{ product.name }}</p>
                                     </a>
-                                    <p class="card-text text-truncate">Большой модульный щит, с дополнительной секцией.</p>
-                                    <p class="product_id">id: 02</p>
+                                    <p class="card-text text-truncate">{{ product.description }}</p>
+                                    <p class="product_id">{{ product.display_id}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p><s>990</s> $</p>
-                                        <p><strong>810 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка  %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn add-to-cart">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/розетки.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title"></p>
-                                    </a>
-                                    <p class="card-text text-truncate">Розетки.</p>
-                                    <p class="product_id">id: 03</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>100</s> $</p>
-                                        <p><strong>90.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
+                                        {% if product.discount %}
+                                            <p><s>{{ product.price }}</s> $</p>
+                                            <p><strong>{{ product.sell_price }}</strong></p>
+                                            <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                                        {% else %}
+                                            <p><strong>{{ product.price}}</strong></p>
+                                        {% endif %}
+
+
+
                                         <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                            <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                                 width="32" height="32">
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/legrand-smart-home-iphones-ru.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title"></p>
-                                    </a>
-                                    <p class="card-text text-truncate">Розетки для умного дома.</p>
-                                    <p class="product_id">id: 04</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>120</s> $</p>
-                                        <p><strong>101 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/legrand-smart-home-iphones-ru-6.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Выключатели для умного дома</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Выключатели для умного дома белые.</p>
-                                    <p class="product_id">id: 05</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>120</s> $</p>
-                                        <p><strong>101.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка  %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/CHernye-vyklyuchateli-Xiaomi.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Выключатели для умного дома черные</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Выключатели Умный дом</p>
-                                    <p class="product_id">id: 06</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>130</s> $</p>
-                                        <p><strong>115 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка  %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/1-2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Люстры для умного дома.</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Люстры с поддержкой Алисы, Google, II.</p>
-                                    <p class="product_id">id: 07</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>345</s> $</p>
-                                        <p><strong>230 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/thumb600_84494700-1703668221.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Люстра Премиум Люкс.</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Люстра LUX</p>
-                                    <p class="product_id">id: 08</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s> 2300 </s> $ </p>
-                                        <p><strong> 2100 $ </strong></p>
-                                        <span class="badge bg-warning text-dark"> Скидка  %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/1695853-1024x683.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Оборудование для умного дома</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Доп Оборудование для умного дома .</p>
-                                    <p class="product_id">id: 09</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>156</s> $</p>
-                                        <p><strong>139.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/Xiaomi_smarthome.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Оборудование для умного дома с дополнением</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Оборудование для умного дома с дополнением.</p>
-                                    <p class="product_id">id: 010</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>100</s> $</p>
-                                        <p><strong>90.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка  %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/dremel-payalnik.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Инструменты</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Инструменты для монтажных работ.</p>
-                                    <p class="product_id">id: 02265</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>200</s> $</p>
-                                        <p><strong>182.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Карта товара -->
-                        <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
-                                <img src="../deps/images/goods/IMG_1023-e1438459686607.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <a href="#">
-                                        <p class="card-title">Инструменты</p>
-                                    </a>
-                                    <p class="card-text text-truncate">Чемодан с инструментами.</p>
-                                    <p class="product_id">id: 02265</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p><s>510</s> $</p>
-                                        <p><strong>402.00 $</strong></p>
-                                        <span class="badge bg-warning text-dark">Скидка %</span>
-                                        <!-- <p><strong>100.00 $</strong></p> -->
-                                        <a href="#" class="btn">
-                                            <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
-                                                width="32" height="32">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        {% endfor %}
+
+
+
+
+
 
                     </div>
                     <!-- Пагинация -->
