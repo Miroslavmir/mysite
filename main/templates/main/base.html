@@ -91,7 +91,7 @@
                         {% tag_categories as cayegories %}
 
                         {% for category in categories %}
-                                     <li><a class="dropdown-item text-black" href="{% url "catalog:index" %}">{{ category.name}}</a></li>
+                                     <li><a class="dropdown-item text-black" href="{% url "catalog:index" category.slug %}">{{ category.name}}</a></li>
                         {% endfor %}
 
 
